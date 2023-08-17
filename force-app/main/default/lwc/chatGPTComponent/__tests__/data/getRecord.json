@@ -1,0 +1,20 @@
+{
+    "apiName": "User",
+    "childRelationships": {},
+    "fields": {
+        "FullPhotoUrl": {
+            "displayValue": null,
+            "value": "https://resourceful-shark-d8r5p3-dev-ed.trailblaze.file.force.com/profilephoto/005/F"
+        },
+        "Name": {
+            "displayValue": null,
+            "value": "Artem Koverchik"
+        }
+    },
+    "id": "0055i00000BWOwMAAX",
+    "lastModifiedById": "0055i00000BWOwMAAX",
+    "lastModifiedDate": "2023-06-27T06:56:20.000Z",
+    "recordTypeId": null,
+    "recordTypeInfo": null,
+    "systemModstamp": "2023-06-27T06:56:20.000Z"
+}

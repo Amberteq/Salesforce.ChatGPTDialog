@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Temperature_could_use_between_0_and_2</fullName>
+    <active>true</active>
+    <errorConditionFormula>Temperature__c &lt; 0 &amp;&amp;  Temperature__c  &gt; 2</errorConditionFormula>
+    <errorMessage>The value of Temperature must be between 0 and 2</errorMessage>
+</ValidationRule>

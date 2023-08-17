@@ -1,0 +1,76 @@
+<!--***** BEGIN LICENSE BLOCK *****
+This Source Code Form is subject to the terms of the Mozilla Public
+License, v. 2.0. If a copy of the MPL was not distributed with this
+file, You can obtain one at https://mozilla.org/MPL/2.0/.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+The Initial Developer of the Original Code is Amberteq Inc.
+Portions created by the Initial Developer are Copyright (C) 2023
+the Initial Developer. All Rights Reserved.
+***** END LICENSE BLOCK *****-->
+
+<template>
+    <div class="slds-card message_area">
+        <template lwc:if={hideSpinner}>
+            <div class="container_image">
+                <lightning-icon class="container_image_item trashbin_img" 
+                    onclick={handleClickClearHistoryButton} 
+                    icon-name="utility:delete" 
+                    alternative-text="Trashbin">
+                </lightning-icon>
+                <lightning-icon class="container_image_item" 
+                    onclick={handleClickSettingsButton} 
+                    icon-name="utility:settings" 
+                    alternative-text="Settings">
+                </lightning-icon>
+            </div>
+            <lightning-textarea 
+                name="message" 
+                onkeypress={handleKeyPress}
+                onchange={handleChangeTextArea}
+                placeholder="Text a message to ChatGTP..." 
+                label="Message" 
+                maxlength="2048"
+                message-when-too-long="A maximum of 2048 characters are allowed in a message." 
+                message-when-value-missing="A message can not be empty.">
+            </lightning-textarea>
+            
+            <div class="message_control">
+                <button class="slds-button 
+                    slds-button_brand" 
+                    label="Send" 
+                    onclick={handleSendButton}
+                    disabled={disableButton}>
+                    Send
+                </button>
+                <span>ChatGPT may produce inaccurate information about people, places, or facts.</span>
+            </div>
+        </template>
+        
+        <template lwc:elseif={showSpinner}>
+            <div class="spinner">
+                <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+            </div>
+        </template>
+    </div>
+
+    <template lwc:if={messagesLength}>
+        <div class="slds-card chat_area">
+            <template for:each={messages} for:item="currentItem">  
+                <div class="chat_item" key={currentItem.id}>
+                    <c-chat-g-p-t-chat-item-component 
+                        member={currentItem.member} 
+                        message={currentItem.value}
+                        chat-logo={currentItem.chatLogo}
+                        time={currentItem.time}>
+                    </c-chat-g-p-t-chat-item-component>
+                </div>
+            </template>
+        </div>
+    </template>
+</template>

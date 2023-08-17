@@ -1,0 +1,18 @@
+.spinner {
+    position: inherit;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+
+.modal_body {
+    position: relative;
+}
+
+.container_history {
+    margin-top: 15px;
+}
+
+.auraPlaceholder.spin, .spinner {
+    background: white;
+}

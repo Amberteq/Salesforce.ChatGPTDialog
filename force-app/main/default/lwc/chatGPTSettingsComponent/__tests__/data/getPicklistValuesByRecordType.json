@@ -1,0 +1,99 @@
+{
+  "picklistFieldValues": {
+    "BaseURL__c": {
+      "controllerValues": {},
+      "defaultValue": null,
+      "url": "/services/data/v58.0/ui-api/object-info/OpenAISettings__c/picklist-values/012000000000000AAA/BaseURL__c",
+      "values": [
+        {
+          "attributes": null,
+          "label": "/v1/chat/completions",
+          "validFor": [],
+          "value": "/v1/chat/completions"
+        },
+        {
+          "attributes": null,
+          "label": "/v1/completions",
+          "validFor": [],
+          "value": "/v1/completions"
+        },
+        {
+          "attributes": null,
+          "label": "/v1/edits",
+          "validFor": [],
+          "value": "/v1/edits"
+        },
+        {
+          "attributes": null,
+          "label": "/v1/fine-tunes",
+          "validFor": [],
+          "value": "/v1/fine-tunes"
+        },
+        {
+          "attributes": null,
+          "label": "/v1/embeddings",
+          "validFor": [],
+          "value": "/v1/embeddings"
+        },
+        {
+          "attributes": null,
+          "label": "/v1/moderations",
+          "validFor": [],
+          "value": "/v1/moderations"
+        }
+      ]
+    },
+    "Model__c": {
+      "controllerValues": {
+        "/v1/chat/completions": 0,
+        "/v1/completions": 1
+      },
+      "defaultValue": null,
+      "url": "/services/data/v58.0/ui-api/object-info/OpenAISettings__c/picklist-values/012000000000000AAA/Model__c",
+      "values": [
+        {
+          "attributes": null,
+          "label": "gpt-3.5-turbo",
+          "validFor": [0],
+          "value": "gpt-3.5-turbo"
+        },
+        {
+          "attributes": null,
+          "label": "gpt-3.5-turbo-0301",
+          "validFor": [0],
+          "value": "gpt-3.5-turbo-0301"
+        },
+        {
+          "attributes": null,
+          "label": "text-davinci-003",
+          "validFor": [1],
+          "value": "text-davinci-003"
+        },
+        {
+          "attributes": null,
+          "label": "text-davinci-002",
+          "validFor": [1],
+          "value": "text-davinci-002"
+        },
+        {
+          "attributes": null,
+          "label": "text-curie-001",
+          "validFor": [1],
+          "value": "text-curie-001"
+        },
+        {
+          "attributes": null,
+          "label": "text-babbage-001",
+          "validFor": [1],
+          "value": "text-babbage-001"
+        },
+        {
+          "attributes": null,
+          "label": "text-ada-001",
+          "validFor": [1],
+          "value": "text-ada-001"
+        }
+      ]
+    }
+  }
+}

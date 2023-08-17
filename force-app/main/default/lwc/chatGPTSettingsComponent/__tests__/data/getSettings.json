@@ -1,0 +1,9 @@
+{
+  "Id": "a025i00000OG8JuAAL",
+  "Name": "Settings",
+  "BaseURL__c": "/v1/chat/completions",
+  "Model__c": "gpt-3.5-turbo",
+  "Temperature__c": 1.1,
+  "MaxTokenSize__c": 1000,
+  "LengthOfDaysToKeepHistory__c": 1
+}

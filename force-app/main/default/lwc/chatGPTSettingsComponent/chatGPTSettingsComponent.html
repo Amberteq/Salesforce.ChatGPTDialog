@@ -1,0 +1,82 @@
+<!--***** BEGIN LICENSE BLOCK *****
+This Source Code Form is subject to the terms of the Mozilla Public
+License, v. 2.0. If a copy of the MPL was not distributed with this
+file, You can obtain one at https://mozilla.org/MPL/2.0/.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+The Initial Developer of the Original Code is Amberteq Inc.
+Portions created by the Initial Developer are Copyright (C) 2023
+the Initial Developer. All Rights Reserved.
+***** END LICENSE BLOCK *****-->
+
+<template>
+    <lightning-modal-header label="Settings"></lightning-modal-header>
+    <lightning-modal-body class="modal_body">
+        <template lwc:if={showSpinner}>
+            <div class="spinner">
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </div>
+        </template>
+        <template lwc:if={hideSpinner}>
+            <div class="slds-media__body">
+                <h2 class="slds-card__header-title">
+                    <span class="slds-card__header-link slds-truncate">OpenAI API Settings</span>
+                </h2>
+            </div>
+            <lightning-combobox
+                name="baseUrl"
+                label="Base URL:"
+                placeholder="Select the URL"
+                value={selectedBaseUrl}
+                options={baseUrlPicklist}
+                onchange={handleBaseUrlChange}
+                required
+            ></lightning-combobox>
+            <lightning-combobox
+                    name="model"
+                    label="Models:"
+                    placeholder="Select the Model"
+                    value={selectedModel}
+                    options={modelPicklist}
+                    onchange={handleModelChange}
+                    disabled={disabledModelPicklist}
+                    required
+            ></lightning-combobox>
+            <lightning-input 
+                type="counter" 
+                name="temperature" 
+                label="Enter a temeperature" 
+                value={temperature}
+                onchange={handleTemperatureChange}
+            ></lightning-input>
+            <lightning-input 
+                type="number" 
+                name="maxTokenSize" 
+                label="Enter a max token size" 
+                value={maxTokenSize}
+                onchange={handleMaxTokenSizeChange}
+            ></lightning-input>
+            <div class="slds-media__body container_history">
+                <h2 class="slds-card__header-title">
+                    <span class="slds-card__header-link slds-truncate">Chat History</span>
+                </h2>
+            </div>
+            <lightning-input 
+                type="number" 
+                name="lengthOfDaysToKeepHistory" 
+                label="Enter the number of days to keep the chat history" 
+                value={lengthOfDaysToKeepHistory}
+                onchange={handleLengthOfDaysChange}
+            ></lightning-input>
+        </template>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <lightning-button class="slds-m-right_small" label="Cancel" onclick={handleCancelClick}></lightning-button>
+        <lightning-button variant="brand" label="Save" onclick={handleSaveClick}></lightning-button>
+    </lightning-modal-footer>
+</template>

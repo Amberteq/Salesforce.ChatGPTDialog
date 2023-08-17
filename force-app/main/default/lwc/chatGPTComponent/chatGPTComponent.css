@@ -1,0 +1,54 @@
+.message_area {
+    position: relative;
+    width: 100%;
+    padding: 15px;
+}
+
+.container_image {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    z-index: 10;
+}
+
+.container_image_item {
+    zoom: 70%;
+    cursor: pointer;
+}
+
+.trashbin_img {
+    margin-right: 5px;
+}
+
+.message_control {
+    margin-top: 10px;
+}
+
+.message_control button {
+    padding: 0px 45px;
+}
+
+.message_control span {
+    margin: 0px 20px;
+    color: grey;
+}
+
+.spinner {
+    position: center;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+
+.chat_area {
+    width: 100%;
+    padding: 15px 0px;
+}
+
+.chat_item {
+    margin: 15px 0 0 0;
+}
+
+.auraPlaceholder.spin, .spinner {
+    background: white;
+}

@@ -1,0 +1,34 @@
+.container {
+    display: flex;
+    padding: 10px 15px 10px 30px;
+}
+
+.containerAI {
+    background-color: #F3F3F6;
+}
+
+.container_body {
+    display: inherit;
+    flex-direction: column;
+    max-width: 100%;
+    width: 100%;
+    margin-left: 10px;
+}
+
+.container_image_item {
+    max-width: 30px;
+    max-height: 30px;
+    width: 30px;
+    height: 30px;
+}
+
+.container_username {
+    color: blue;
+}
+
+.container_time {
+    display: inherit;
+    justify-content: flex-end;
+    font-size: 11px;
+}
+

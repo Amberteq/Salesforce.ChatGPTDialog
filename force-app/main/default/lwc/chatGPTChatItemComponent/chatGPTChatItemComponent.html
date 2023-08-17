@@ -1,0 +1,38 @@
+<!--***** BEGIN LICENSE BLOCK *****
+This Source Code Form is subject to the terms of the Mozilla Public
+License, v. 2.0. If a copy of the MPL was not distributed with this
+file, You can obtain one at https://mozilla.org/MPL/2.0/.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+The Initial Developer of the Original Code is Amberteq Inc.
+Portions created by the Initial Developer are Copyright (C) 2023
+the Initial Developer. All Rights Reserved.
+***** END LICENSE BLOCK *****-->
+
+<template>
+    <div class={classes}>
+        <div class="container_image">
+            <img class="container_image_item" src={chatLogo} width="30" height="30" alt="Chat Logo" />
+        </div>
+        <div class="container_body">
+            <template lwc:if={isUser}>
+                <div class="container_username">
+                    <lightning-formatted-text class="container_username_item" value={member} ></lightning-formatted-text>
+                </div>
+            </template>
+            <div>
+                <lightning-formatted-text value={message} linkify ></lightning-formatted-text> 
+            </div>
+            <div class="container_time">
+                <div class="container_time_body">
+                    <lightning-formatted-text class="container_time_item" value={formattedTime} ></lightning-formatted-text>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
