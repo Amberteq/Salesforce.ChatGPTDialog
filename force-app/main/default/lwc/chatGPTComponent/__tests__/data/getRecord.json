@@ -4,11 +4,11 @@
     "fields": {
         "FullPhotoUrl": {
             "displayValue": null,
-            "value": "https://resourceful-shark-d8r5p3-dev-ed.trailblaze.file.force.com/profilephoto/005/F"
+            "value": "image"
         },
         "Name": {
             "displayValue": null,
-            "value": "Artem Koverchik"
+            "value": "Test Name"
         }
     },
     "id": "0055i00000BWOwMAAX",
