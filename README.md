@@ -1,18 +1,15 @@
-# Salesforce DX Project: Next Steps
+# Salesforce.ChatGPTDialog
+Salesforce package for adding OpenAI ChatGPT dialog for Salesforce interface.
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+## About
 
-## How Do You Plan to Deploy Your Changes?
+ChatGPT dialog integration for your Salesforce application (Sales Cloud). Just install and communicate with ChatGPT models. You need an OpenAI paid account for using the package. Login to www.openai.com, create a paid account and get API KEY for interaction. After you have API KEY - provide it in the Setup. Then you can chat with ChatGPT models without exiting your Salesforce application.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+## How to Install
 
-## Configure Your Salesforce DX Project
-
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+Installation Package URL - [ChatGPT Dialog For Salesforce](https://login.salesforce.com/packaging/installPackage.apexp?p0=04tHo000000Q3wS)
+To install the package:
+  1. In a browser, enter the installation URL.
+  2. Enter your username and password for the Salesforce org in which you want to install the package, and then click Login.
+  3. Make an active checkbox and click Install, in modal window also approve and click continue.
+  A message describes the progress. You receive a confirmation message when the installation is complete.
