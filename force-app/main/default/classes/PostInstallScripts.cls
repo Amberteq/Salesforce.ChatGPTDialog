@@ -15,31 +15,29 @@ the Initial Developer. All Rights Reserved.
 ***** END LICENSE BLOCK ******/
 
 global with sharing class PostInstallScripts implements InstallHandler {
-
-    private static final String SCHEDULE_TIME = '0 00 00 * * ?'; 
     
     global void onInstall(InstallContext context) {
-        String jobName = 'ChatGPT Delete Chat History Batch Job';
+        String jobName = Constants.DELETE_CHAT_HISTORY_BATCH_JOB_NAME;
 
         if (Test.isRunningTest()) {
-            jobName += ' from test';
+            jobName = Constants.DELETE_CHAT_HISTORY_BATCH_JOB_TEST_NAME;
         }
 
         if (context.previousVersion() == null) {
-            OpenAIKey__c custtomSettings = new OpenAIKey__c(Name = 'OpenAI API Key');
+            OpenAIKey__c custtomSettings = new OpenAIKey__c(Name = Constants.API_KEY_NAME);
             insert custtomSettings;
 
             DeleteChatHistorySchedule schedule = new DeleteChatHistorySchedule();
-            System.schedule(jobName, SCHEDULE_TIME, schedule);
+            System.schedule(jobName, Constants.SCHEDULE_TIME_BATCH, schedule);
         } else if (context.isUpgrade()) {
             List<CronTrigger> jobs = [SELECT Id FROM CronTrigger WHERE CronJobDetail.Name =: jobName];
             if (jobs.size() == 0) {
                 DeleteChatHistorySchedule schedule = new DeleteChatHistorySchedule();
-                System.schedule(jobName, SCHEDULE_TIME, schedule);
+                System.schedule(jobName, Constants.SCHEDULE_TIME_BATCH, schedule);
             }
 
-            if (OpenAIKey__c.getInstance('OpenAI API Key') == null) {
-                OpenAIKey__c custtomSettings = new OpenAIKey__c(Name = 'OpenAI API Key');
+            if (OpenAIKey__c.getInstance(Constants.API_KEY_NAME) == null) {
+                OpenAIKey__c custtomSettings = new OpenAIKey__c(Name = Constants.API_KEY_NAME);
                 insert custtomSettings;
             }
         }

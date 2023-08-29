@@ -19,7 +19,6 @@ public with sharing class ChatGPTDeleteChatHistoryBatchTest {
     
     @isTest
     static void testBatch() {
-        
         OpenAISettings__c settingsItem = new OpenAISettings__c(Name = 'Settings', BaseURL__c = '/v1/completions', Model__c = 'text-davinci-003', ChatHistory__c = 'test');
         settingsItem.LengthOfDaysToKeepHistory__c = 1;
         insert settingsItem;

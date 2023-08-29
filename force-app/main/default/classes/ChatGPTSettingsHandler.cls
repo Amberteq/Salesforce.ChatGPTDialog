@@ -45,7 +45,6 @@ public with sharing class ChatGPTSettingsHandler {
                 ));
                 insert settings;
             }
-
             return settings[0];
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
@@ -62,12 +61,9 @@ public with sharing class ChatGPTSettingsHandler {
     public static void updateSettings(String settingsItemJSON){
         try {
             OpenAISettings__c settingsItem = (OpenAISettings__c) JSON.deserialize(settingsItemJSON, OpenAISettings__c.class);
-            System.debug(settingsItem);
             update settingsItem;
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }
-
-        
     }
 }

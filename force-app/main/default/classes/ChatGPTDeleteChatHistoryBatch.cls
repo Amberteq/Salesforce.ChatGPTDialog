@@ -16,16 +16,11 @@ the Initial Developer. All Rights Reserved.
 
 public class ChatGPTDeleteChatHistoryBatch implements Database.Batchable<SObject> {
 
-    private static final String SCHEDULE_TIME = '0 00 00 * * ?';
-    private static final String QUERY = 'SELECT Id, ChatHistory__c, DateToDeleteChatHistory__c, LengthOfDaysToKeepHistory__c FROM OpenAISettings__c';
-    
     /**
      * Query all OpenAISettings__c records
      */
     public Database.QueryLocator start(Database.BatchableContext BC) {
-        String query = QUERY;
-
-        return Database.getQueryLocator(query);
+        return Database.getQueryLocator(Constants.SETTINGS_ITEM_CHAT_INFO_QUERY);
     }
 
     /**
@@ -51,12 +46,13 @@ public class ChatGPTDeleteChatHistoryBatch implements Database.Batchable<SObject
      * Schedule the job if it does not already exist
      */
     public void finish(Database.BatchableContext BC) {
-        List<CronTrigger> jobs = [SELECT Id FROM CronTrigger WHERE CronJobDetail.Name = 'ChatGPT Delete Chat History Batch Job'];
+        String jobName = Constants.DELETE_CHAT_HISTORY_BATCH_JOB_NAME;
+        List<CronTrigger> jobs = [SELECT Id FROM CronTrigger WHERE CronJobDetail.Name =: jobName];
+
         if (jobs.size() == 0) {
             DeleteChatHistorySchedule schedule = new DeleteChatHistorySchedule();
-            System.schedule('ChatGPT Delete Chat History Batch Job', SCHEDULE_TIME, schedule);
+            System.schedule(jobName, Constants.SCHEDULE_TIME_BATCH, schedule);
         }
-        
     }
 
     /**

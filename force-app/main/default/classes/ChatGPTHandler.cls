@@ -16,7 +16,7 @@ the Initial Developer. All Rights Reserved.
 
 public with sharing class ChatGPTHandler {
 
-    private static final String API_KEY = OpenAIKey__c.getInstance('OpenAI API Key').Key__c;
+    private static final String API_KEY = OpenAIKey__c.getInstance(Constants.API_KEY_NAME).Key__c;
 
     /**
      * Return a String, which contains chat history.
@@ -105,11 +105,9 @@ public with sharing class ChatGPTHandler {
                 System.debug('The status code returned was not expected: ' + response.getStatusCode() + ' ' + response.getBody());
                 throw new AuraHandledException(response.getBody());
             }
-            System.debug(responseMessage);
+
             return JSON.serialize(messageItem);
         } catch(Exception ex) {
-            
-            System.debug('Exception ' + ex);
             throw new AuraHandledException(ex.getMessage());
         }
     }
@@ -172,7 +170,6 @@ public with sharing class ChatGPTHandler {
      * @return String fetched request body
      */
     private static String fetchRequestBody(String message, OpenAISettings__c settingsItem) {
-        
         String requestBody = '{' +
         '"model": "' + settingsItem.Model__c + '", ' +
         createMessageStringToRequestBody(message, settingsItem.BaseURL__c) + 

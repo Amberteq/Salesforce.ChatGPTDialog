@@ -16,6 +16,7 @@ the Initial Developer. All Rights Reserved.
 
 @isTest
 public with sharing class PostInstallScriptsTest {
+    private static String jobName = Constants.DELETE_CHAT_HISTORY_BATCH_JOB_TEST_NAME;
    
     @isTest
     private static void testOnInstallFirstTime() {
@@ -24,9 +25,9 @@ public with sharing class PostInstallScriptsTest {
         Test.testInstall(postinstall, null);
         Test.stopTest();
 
-        List<CronTrigger> jobs = [SELECT Id FROM CronTrigger WHERE CronJobDetail.Name = 'ChatGPT Delete Chat History Batch Job from test'];
+        List<CronTrigger> jobs = [SELECT Id FROM CronTrigger WHERE CronJobDetail.Name =: jobName];
         
-        System.assert(OpenAIKey__c.getInstance('OpenAI API Key') != null);
+        System.assert(OpenAIKey__c.getInstance(Constants.API_KEY_NAME) != null);
         System.assert(jobs.size() > 0);
     }
 
@@ -37,9 +38,9 @@ public with sharing class PostInstallScriptsTest {
         Test.testInstall(postinstall, new Version(1,0), true);
         Test.stopTest();
 
-        List<CronTrigger> jobs = [SELECT Id FROM CronTrigger WHERE CronJobDetail.Name = 'ChatGPT Delete Chat History Batch Job from test'];
+        List<CronTrigger> jobs = [SELECT Id FROM CronTrigger WHERE CronJobDetail.Name =: jobName];
 
-        System.assert(OpenAIKey__c.getInstance('OpenAI API Key') != null);
+        System.assert(OpenAIKey__c.getInstance(Constants.API_KEY_NAME) != null);
         System.assert(jobs.size() > 0);
     }
 

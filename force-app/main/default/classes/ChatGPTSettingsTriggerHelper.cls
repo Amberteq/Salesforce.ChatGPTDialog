@@ -21,11 +21,9 @@ public with sharing class ChatGPTSettingsTriggerHelper {
      * @param settings A list of OpenAISettings__c records
      */
     public static void onInsertHandler(List<OpenAISettings__c> settings) {
-
         for (OpenAISettings__c item : settings) {
             item.DateToDeleteChatHistory__c = Date.today() + (Integer) item.LengthOfDaysToKeepHistory__c;
         }
-
     }
     
     /**

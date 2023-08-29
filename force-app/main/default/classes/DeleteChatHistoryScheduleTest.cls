@@ -19,12 +19,13 @@ public with sharing class DeleteChatHistoryScheduleTest {
     
     @isTest
     static void testSchedule() {
+        String jobName = Constants.DELETE_CHAT_HISTORY_BATCH_JOB_NAME;
         Test.startTest();
         DeleteChatHistorySchedule SC = new DeleteChatHistorySchedule(); 
-        Id jobId = System.schedule('Test Schedule', '0 00 00 * * ?', SC);
+        Id jobId = System.schedule(jobName, Constants.SCHEDULE_TIME_BATCH, SC);
         Test.stopTest();
 
-        List<CronTrigger> jobs = [SELECT Id FROM CronTrigger WHERE CronJobDetail.Name = 'Test Schedule'];
+        List<CronTrigger> jobs = [SELECT Id FROM CronTrigger WHERE CronJobDetail.Name =: jobName];
         System.assert(jobs.size() > 0);
     }
 }
