@@ -1,7 +1,7 @@
 # Salesforce.ChatGPTDialog
 Salesforce package for adding OpenAI ChatGPT dialog for Salesforce interface.
 
-![Company logo](https://github.com/ArtemKoverchik/Salesforce.ChatGPTDialog/blob/media/image/Logo.png)
+![Company logo](https://github.com/ArtemKoverchik/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Logo.png)
 
 ## About
 
