@@ -21,27 +21,27 @@ To install the package:
 
   1. Add a new tab for your Salesforce application.
 
-  ![Company logo](https://github.com/Salesforce.ChatGPTDialog/blob/media/image/Setup1.png)
+  ![Company logo](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup1.png)
 
   2. Communicate with ChatGPT (before you have to setup OpenAI API KEY - see below).
 
-  ![Company logo](https://github.com/Salesforce.ChatGPTDialog/blob/media/image/Setup2.png)
+  ![Company logo](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup2.png)
   
   3. Setup OpenAI communication parameters, select ChatGPT model (GPT-3, GPT-4 or other) and other parameters.
 
-  ![Company logo](https://github.com/Salesforce.ChatGPTDialog/blob/media/image/Setup3.png)
+  ![Company logo](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup3.png)
   
   4. Clear conversation history when necessary.
 
-  ![Company logo](https://github.com/Salesforce.ChatGPTDialog/blob/media/image/Setup4.png)
+  ![Company logo](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup4.png)
   
   5. Go to the Settings and specify OpenAI API KEY.
 
-  ![Company logo](https://github.com/Salesforce.ChatGPTDialog/blob/media/image/Setup5.png)
+  ![Company logo](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup5.png)
 
-  ![Company logo](https://github.com/Salesforce.ChatGPTDialog/blob/media/image/Setup6.png)
+  ![Company logo](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup6.png)
 
-  ![Company logo](https://github.com/Salesforce.ChatGPTDialog/blob/media/image/Setup7.png)
+  ![Company logo](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup7.png)
 
 ## Contacts
 
