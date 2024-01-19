@@ -8,40 +8,55 @@ Salesforce package for adding OpenAI ChatGPT dialog for Salesforce interface.
 ChatGPT dialog integration for your Salesforce application. Just install and communicate with ChatGPT models. You need an OpenAI paid account for using the package. Login to [www.openai.com](https://www.openai.com), create a paid account and get API KEY for the interaction. After you have API KEY - provide it in the Setup. Then you can chat with ChatGPT models without exiting your Salesforce application.
 
 ## How to Install
+[AppExchange Package URL](https://appexchange.salesforce.com/appxListingDetail?listingId=5310bc3c-7833-40dc-9e64-6b275d787162&tab=r)
 
-Installation Package URL - [ChatGPT Dialog For Salesforce](https://login.salesforce.com/packaging/installPackage.apexp?p0=04tHo000000Q3wS)
+Installation Package URL - [ChatGPT Dialog For Salesforce](https://login.salesforce.com/packaging/installPackage.apexp?p0=04tHo000000KAR7)
 To install the package:
-  1. In a browser, enter the installation URL([https://login.salesforce.com/packaging/installPackage.apexp?p0=04tHo000000Q3wS](https://login.salesforce.com/packaging/installPackage.apexp?p0=04tHo000000Q3wS));
+  1. In a browser, enter the installation URL([https://login.salesforce.com/packaging/installPackage.apexp?p0=04tHo000000KAR7](https://login.salesforce.com/packaging/installPackage.apexp?p0=04tHo000000KAR7)) or go to AppExchange;
   2. Enter your username and password for the Salesforce Org in which you want to install the package;
   3. Login to your Org;
-  4. Make an active checkbox (I acknowledge that I’m installing a Non-Salesforce Application that is not authorized for distribution as part of Salesforce’s AppExchange Partner Program) and click Install;
+  4. Choose access for users and click Install;
   5. In the modal window approve and click continue. A message describes the progress. You receive a confirmation message when the installation is complete;
 
 ## How to Use
 
   1. Add a new tab for your Salesforce application.
 
-  ![Company logo](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup1.png)
+  ![Setup 1](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup1.png)
 
   2. Communicate with ChatGPT (before you have to setup OpenAI API KEY - see below).
 
-  ![Company logo](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup2.png)
+  ![Setup 2](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup2.png)
   
   3. Setup OpenAI communication parameters, select ChatGPT model (GPT-3, GPT-4 or other) and other parameters.
 
-  ![Company logo](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup3.png)
+  ![Setup 3](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup3.png)
   
   4. Clear conversation history when necessary.
 
-  ![Company logo](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup4.png)
+  ![Setup 4](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup4.png)
   
   5. Go to the Settings and specify OpenAI API KEY.
 
-  ![Company logo](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup5.png)
+  ![Setup 5](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup5.png)
 
-  ![Company logo](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup6.png)
+  ![Setup 6](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup6.png)
 
-  ![Company logo](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup7.png)
+  ![Setup 7](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup7.png)
+
+  ![Setup 8](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup8.png)
+
+  ![Setup 9](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup9.png)
+
+  ![Setup 10](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup10.png)
+
+  ![Setup 11](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup11.png)
+
+  ![Setup 12](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup12.png)
+
+  ![Setup 13](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup13.png)
+
+  ![Setup 14](https://github.com/Amberteq/Salesforce.ChatGPTDialog/blob/media/image/Setup14.png)
 
 ## Contacts
 
