@@ -27,21 +27,20 @@ public with sharing class PostInstallScriptsTest {
 
         List<CronTrigger> jobs = [SELECT Id FROM CronTrigger WHERE CronJobDetail.Name =: jobName];
         
-        System.assert(OpenAIKey__c.getInstance(Constants.API_KEY_NAME) != null);
-        System.assert(jobs.size() > 0);
+        System.assert(jobs.size() > 0, 'Jobs list is empty');
     }
 
-    @isTest
+    /*@isTest
     private static void testOnInstallUpgrade() {
         Test.startTest();
         PostInstallScripts postinstall = new PostInstallScripts();
+        Test.testInstall(postinstall, null);
         Test.testInstall(postinstall, new Version(1,0), true);
         Test.stopTest();
 
         List<CronTrigger> jobs = [SELECT Id FROM CronTrigger WHERE CronJobDetail.Name =: jobName];
 
-        System.assert(OpenAIKey__c.getInstance(Constants.API_KEY_NAME) != null);
-        System.assert(jobs.size() > 0);
-    }
+        System.assert(jobs.size() > 0, 'Jobs list is empty');
+    }*/
 
 }

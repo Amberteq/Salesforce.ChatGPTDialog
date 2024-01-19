@@ -25,7 +25,7 @@ public with sharing class ChatGPTSettingsTriggerHelperTest {
     @isTest
     static void testOnInsertHandler() {
         OpenAISettings__c settingsItem = [SELECT Id, DateToDeleteChatHistory__c FROM OpenAISettings__c LIMIT 1];
-        System.assert(settingsItem.DateToDeleteChatHistory__c != null);
+        System.assert(settingsItem.DateToDeleteChatHistory__c != null, 'Date is empty');
     }
 
     @isTest
@@ -36,6 +36,6 @@ public with sharing class ChatGPTSettingsTriggerHelperTest {
         update settingsItem;
 
         settingsItem = [SELECT Id, DateToDeleteChatHistory__c FROM OpenAISettings__c LIMIT 1];
-        System.assertEquals(Date.today() + 10, settingsItem.DateToDeleteChatHistory__c);
+        System.assertEquals(Date.today() + 10, settingsItem.DateToDeleteChatHistory__c, 'Dates are not equal');
     }
 }

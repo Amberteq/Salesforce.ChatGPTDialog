@@ -33,7 +33,7 @@ public with sharing class ChatGPTDeleteChatHistoryBatchTest {
 
         settingsItem = [SELECT Id, ChatHistory__c FROM OpenAISettings__c LIMIT 1];
 
-        System.assert(settingsItem.ChatHistory__c == '' || settingsItem.ChatHistory__c == null);
+        System.assert(settingsItem.ChatHistory__c == '' || settingsItem.ChatHistory__c == null, 'Chat History was not deleted');
     }
 
 }

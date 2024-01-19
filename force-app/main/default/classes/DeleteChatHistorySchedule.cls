@@ -16,7 +16,7 @@ the Initial Developer. All Rights Reserved.
 
 public with sharing class DeleteChatHistorySchedule implements Schedulable {
 
-    public void execute(SchedulableContext SC) {
+    public void execute(SchedulableContext sc) {
         ChatGPTDeleteChatHistoryBatch batch = new ChatGPTDeleteChatHistoryBatch();
         Database.executeBatch(batch);
     }

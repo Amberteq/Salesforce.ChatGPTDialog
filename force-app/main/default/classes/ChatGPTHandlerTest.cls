@@ -19,10 +19,7 @@ public with sharing class ChatGPTHandlerTest {
 
     @TestSetup
     static void makeData(){
-        OpenAIKey__c custtomSettings = new OpenAIKey__c(Name = 'OpenAI API Key', Key__c = 'Test1');
-        insert custtomSettings;
-
-        OpenAISettings__c settingsItem = new OpenAISettings__c(Name = 'TEst Settings', BaseURL__c = '/v1/chat/completions', Model__c = 'gpt-4');
+        OpenAISettings__c settingsItem = new OpenAISettings__c(Name = 'Test Settings', BaseURL__c = '/v1/chat/completions', Model__c = 'gpt-4');
         insert settingsItem;
     }
 
@@ -37,7 +34,7 @@ public with sharing class ChatGPTHandlerTest {
 
         chatHistory = ChatGPTHandler.getChatHistory(userId);
 
-        System.assertEquals(settingsItem.ChatHistory__c, chatHistory);
+        System.assertEquals(settingsItem.ChatHistory__c, chatHistory, 'Chat histories are not the same');
     }
 
     @isTest
@@ -47,13 +44,12 @@ public with sharing class ChatGPTHandlerTest {
 
         chatHistory = ChatGPTHandler.getChatHistory(userId);
 
-        System.assert(chatHistory == '');
+        System.assert(chatHistory == '', 'Chat History is not empty');
     }
 
     @isTest
     static void testClearHistory() {
         OpenAISettings__c settingsItem = [SELECT Id, ChatHistory__c FROM OpenAISettings__c LIMIT 1];
-        String chatHistory = '';
         String returnStatus = '';
         Id userId = UserInfo.getUserId();
 
@@ -62,7 +58,7 @@ public with sharing class ChatGPTHandlerTest {
 
         returnStatus = ChatGPTHandler.clearHistory(userId);
 
-        System.assert(returnStatus == 'success');
+        System.assert(returnStatus == 'success', 'Return status is not success');
     }
 
     @isTest
@@ -80,7 +76,7 @@ public with sharing class ChatGPTHandlerTest {
 
         Map<String, String> parsedResponseMap = (Map<String,String>) JSON.deserialize(response, Map<String,String>.class);
 
-        System.assertEquals('test', parsedResponseMap.get('message'));
+        System.assertEquals('test', parsedResponseMap.get('message'), 'Messages are not equal');
     }
 
     @isTest
@@ -98,6 +94,6 @@ public with sharing class ChatGPTHandlerTest {
 
         Map<String, String> parsedResponseMap = (Map<String,String>) JSON.deserialize(response, Map<String,String>.class);
 
-        System.assertEquals('test', parsedResponseMap.get('message'));
+        System.assertEquals('test', parsedResponseMap.get('message'), 'MEssages are not equal');
     }
 }

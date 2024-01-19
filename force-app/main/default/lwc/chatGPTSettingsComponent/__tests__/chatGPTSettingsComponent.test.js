@@ -2,8 +2,6 @@ import { createElement } from "lwc";
 import ChatGPTSettingsComponent from "c/chatGPTSettingsComponent";
 import { getPicklistValuesByRecordType, getObjectInfo } from "lightning/uiObjectInfoApi";
 import getSettings from "@salesforce/apex/ChatGPTSettingsHandler.getSettings";
-import updateSettings from "@salesforce/apex/ChatGPTSettingsHandler.updateSettings";
-
 const mockGetObjectInfo = require("./data/getObjectInfo.json");
 const mockGetPicklistValuesByRecordType = require("./data/getPicklistValuesByRecordType.json");
 const mockGetSettings = require("./data/getSettings.json");

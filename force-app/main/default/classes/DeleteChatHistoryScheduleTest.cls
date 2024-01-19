@@ -21,11 +21,11 @@ public with sharing class DeleteChatHistoryScheduleTest {
     static void testSchedule() {
         String jobName = Constants.DELETE_CHAT_HISTORY_BATCH_JOB_NAME;
         Test.startTest();
-        DeleteChatHistorySchedule SC = new DeleteChatHistorySchedule(); 
-        Id jobId = System.schedule(jobName, Constants.SCHEDULE_TIME_BATCH, SC);
+        DeleteChatHistorySchedule sc = new DeleteChatHistorySchedule(); 
+        System.schedule(jobName, Constants.SCHEDULE_TIME_BATCH, SC);
         Test.stopTest();
 
         List<CronTrigger> jobs = [SELECT Id FROM CronTrigger WHERE CronJobDetail.Name =: jobName];
-        System.assert(jobs.size() > 0);
+        System.assert(jobs.size() > 0, 'Jobs list is empty');
     }
 }

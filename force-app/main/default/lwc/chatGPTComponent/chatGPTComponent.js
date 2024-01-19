@@ -35,8 +35,34 @@ export default class ChatGPTComponent extends LightningElement {
     @track userName;
     @track userPhotoUrl;
     @track chatGPTLogo = CHAT_LOGO;
+
+    channelName = '/event/ChatGPTEvent__e';
+    subscription = {};
     messageId = 0;
 
+    /*subscribeOnEvent() {
+        const messageCallback = response => {
+            let parsedResult = JSON.parse(response.data.payload.amb_sf_chatgpt__message__c);
+            this.messages.unshift({
+                id: this.messageId++,
+                member: this.userName,
+                value: parsedResult[0].message,
+                chatLogo: this.userPhotoUrl,
+                time: parsedResult[0].time
+            });
+            this.messages.unshift({
+                id: this.messageId++,
+                member: 'ai',
+                value: parsedResult[1].message,
+                chatLogo: this.chatGPTLogo,
+                time: parsedResult[1].time
+            });
+            this.changeSpinnerState(false);
+        };
+
+        subscribe(this.channelName, -1, messageCallback);
+    }
+*/
     @wire(getRecord, {
         recordId: USER_ID, 
         fields: [USER_NAME, USER_PHOTO_URL]
@@ -88,6 +114,8 @@ export default class ChatGPTComponent extends LightningElement {
                     });
                     console.log(error);
                 })
+
+            //this.subscribeOnEvent();
         }   
     }
 

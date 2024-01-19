@@ -14,7 +14,7 @@ Portions created by the Initial Developer are Copyright (C) 2023
 the Initial Developer. All Rights Reserved.
 ***** END LICENSE BLOCK ******/
 
-import { LightningElement, api } from 'lwc';
+import { api } from 'lwc';
 import LightningModal from 'lightning/modal';
 import clearHistory from '@salesforce/apex/ChatGPTHandler.clearHistory';
 

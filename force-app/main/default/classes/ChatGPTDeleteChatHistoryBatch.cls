@@ -19,33 +19,31 @@ public class ChatGPTDeleteChatHistoryBatch implements Database.Batchable<SObject
     /**
      * Query all OpenAISettings__c records
      */
-    public Database.QueryLocator start(Database.BatchableContext BC) {
+    public Database.QueryLocator start(Database.BatchableContext bc) {
         return Database.getQueryLocator(Constants.SETTINGS_ITEM_CHAT_INFO_QUERY);
     }
 
     /**
      *  Iterate through the list of OpenAISettings__c records and update the ChatHistory__c and DateToDeleteChatHistory__c fields
      */
-    public void execute(Database.BatchableContext BC, List<OpenAISettings__c> scope) {
+    public void execute(Database.BatchableContext bc, List<OpenAISettings__c> scope) {
 
-        List<OpenAISettings__c> settingsToUpdateList = new List<OpenAISettings__c>();
-
-        if (checkFieldsOnUpdateable()) {
-            for (OpenAISettings__c item : scope) {
-                if ((item.DateToDeleteChatHistory__c < Date.today()) && (item.ChatHistory__c != '')) {
-                    item.ChatHistory__c = '';
-                    item.DateToDeleteChatHistory__c = Date.today() + (Integer) item.LengthOfDaysToKeepHistory__c;
-                    settingsToUpdateList.add(item);
-                }
+        List<OpenAISettings__c> settingsToUpdateList = new List<OpenAISettings__c>();   
+        for (OpenAISettings__c item : scope) {
+            if ((item.DateToDeleteChatHistory__c < Date.today()) && (item.ChatHistory__c != '')) {
+                item.ChatHistory__c = '';
+                item.DateToDeleteChatHistory__c = Date.today() + (Integer) item.LengthOfDaysToKeepHistory__c;
+                settingsToUpdateList.add(item);
             }
-            update settingsToUpdateList;
         }
+        SObjectAccessDecision securityDecision = Security.stripInaccessible(AccessType.UPDATABLE, settingsToUpdateList);
+        update securityDecision.getRecords();
     }
 
     /**
      * Schedule the job if it does not already exist
      */
-    public void finish(Database.BatchableContext BC) {
+    public void finish(Database.BatchableContext bc) {
         String jobName = Constants.DELETE_CHAT_HISTORY_BATCH_JOB_NAME;
         List<CronTrigger> jobs = [SELECT Id FROM CronTrigger WHERE CronJobDetail.Name =: jobName];
 
@@ -54,14 +52,4 @@ public class ChatGPTDeleteChatHistoryBatch implements Database.Batchable<SObject
             System.schedule(jobName, Constants.SCHEDULE_TIME_BATCH, schedule);
         }
     }
-
-    /**
-     * Check if the fields are updateable
-     * @return Boolean 
-     */
-    private Boolean checkFieldsOnUpdateable() {
-        return Schema.sObjectType.amb_sf_chatgpt__OpenAISettings__c.fields.amb_sf_chatgpt__DateToDeleteChatHistory__c.isUpdateable() &&
-            Schema.sObjectType.amb_sf_chatgpt__OpenAISettings__c.fields.amb_sf_chatgpt__ChatHistory__c.isUpdateable();
-    }
-
 }

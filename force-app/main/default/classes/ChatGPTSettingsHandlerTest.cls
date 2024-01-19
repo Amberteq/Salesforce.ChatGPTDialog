@@ -24,14 +24,14 @@ public with sharing class ChatGPTSettingsHandlerTest {
 
         OpenAISettings__c recievedSettingsItem = ChatGPTSettingsHandler.getSettings(UserInfo.getUserId());
 
-        System.assertEquals(settingsItem.Id, recievedSettingsItem.Id);
+        System.assertEquals(settingsItem.Id, recievedSettingsItem.Id, 'Ids are not equal');
     }
 
     @isTest
     public static void testGetSettingsWithNoSettingsRecord() {
         OpenAISettings__c recievedSettingsItem = ChatGPTSettingsHandler.getSettings(UserInfo.getUserId());
 
-        System.assert(recievedSettingsItem.Id != null || recievedSettingsItem.Id != '');
+        System.assert(recievedSettingsItem.Id != null || recievedSettingsItem.Id != '', 'Id is empty');
     }
 
     @isTest
@@ -43,7 +43,7 @@ public with sharing class ChatGPTSettingsHandlerTest {
         ChatGPTSettingsHandler.updateSettings(JSON.serialize(settingsItem));
 
         settingsItem = [SELECT Id, Temperature__c FROM OpenAISettings__c LIMIT 1];
-        System.assertEquals(1.0, settingsItem.Temperature__c);
+        System.assertEquals(1.0, settingsItem.Temperature__c, 'Temperatures are not equal');
     }
 
 }

@@ -32,6 +32,7 @@ public with sharing class ChatGPTSettingsHandler {
                 SELECT Id, Name, BaseURL__c, Model__c, Temperature__c, MaxTokenSize__c, LengthOfDaysToKeepHistory__c
                 FROM OpenAISettings__c 
                 WHERE OwnerId = :userId
+                WITH SECURITY_ENFORCED
             ];
 
             if (settings.isEmpty()) {
@@ -43,7 +44,9 @@ public with sharing class ChatGPTSettingsHandler {
                     Temperature__c = 0,
                     LengthOfDaysToKeepHistory__c = 3
                 ));
-                insert settings;
+
+                SObjectAccessDecision securityDecision = Security.stripInaccessible(AccessType.CREATABLE, settings);
+                insert securityDecision.getRecords();
             }
             return settings[0];
         } catch (Exception e) {
@@ -61,7 +64,8 @@ public with sharing class ChatGPTSettingsHandler {
     public static void updateSettings(String settingsItemJSON){
         try {
             OpenAISettings__c settingsItem = (OpenAISettings__c) JSON.deserialize(settingsItemJSON, OpenAISettings__c.class);
-            update settingsItem;
+            SObjectAccessDecision securityDecision = Security.stripInaccessible(AccessType.UPDATABLE, new List<amb_sf_chatgpt__OpenAISettings__c>{settingsItem});
+            update securityDecision.getRecords();
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }

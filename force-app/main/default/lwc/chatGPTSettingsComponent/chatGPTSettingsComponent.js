@@ -14,7 +14,7 @@ Portions created by the Initial Developer are Copyright (C) 2023
 the Initial Developer. All Rights Reserved.
 ***** END LICENSE BLOCK ******/
 
-import { LightningElement, wire, track, api } from 'lwc';
+import { wire, track, api } from 'lwc';
 import getSettings from '@salesforce/apex/ChatGPTSettingsHandler.getSettings';
 import updateSettings from '@salesforce/apex/ChatGPTSettingsHandler.updateSettings';
 import { getPicklistValuesByRecordType, getObjectInfo } from 'lightning/uiObjectInfoApi';
@@ -133,7 +133,7 @@ export default class ChatGPTSettingsComponent extends LightningModal {
         let dependentArray = [];
 
         if (this.dependentPicklistFieldValues.length > 0 && this.selectedBaseUrl) {
-            this.dependentPicklistFieldValues.map(item => {
+            this.dependentPicklistFieldValues.forEach(item => {
                 if (item.value === this.selectedBaseUrl) {
                     dependentArray = item.dependentArray;
                 }
